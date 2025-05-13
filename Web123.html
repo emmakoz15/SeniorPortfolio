@@ -22,6 +22,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kaisei+Decol&family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Madimi+One&display=swap"
+        rel="stylesheet">
 
 
 
@@ -29,8 +35,9 @@
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
 
 
-    <!-- Fontawesome Link for Icons (from slider cards) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  
+    <!-- FontAwesome for icons (used in footer) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 </head>
 
@@ -52,11 +59,46 @@
             </div>
           </div>
 
+    </div>
 
+    
+    <!-- Main content area -->
+    <div class="container mt-5">
 
-
-           
-
+        <!-- Info boxes section with different content about the B-wing -->
+        <div class="row info-row d-flex justify-content-center align-items-center">
+            <div class="what-image col-12 order-lg-2 col-lg-6" id="what">
+            </div>
+            <div
+                class="what-text col-12 order-lg-1 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="text-center info-title">Website:<br>Name</h1>
+                <div class="info-section text-center">Website desc.
+                </div>
+                <button class="btn" onclick="window.location.href = 'rooms.html';">Click here to explore the
+                    website link!</button>
+            </div>
+        </div>
+        <div class="row info-row d-flex justify-content-center align-items-center">
+            <div class="offer-image col-12 col-lg-6"></div>
+            <div class="offer-text col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="text-center info-title">Website<br>Name</h1>
+                <div class="info-section text-center">Website desc.
+                </div>
+                <button class="btn" onclick="window.location.href = 'courses.html';">Click here to explore the
+                    website link!</button>
+            </div>
+        </div>
+        <div class="row info-row d-flex justify-content-center align-items-center">
+            <div class="staff-image col-12 order-lg-2 col-lg-6"></div>
+            <div
+                class="staff-text col-12 order-lg-1 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="text-center info-title">Website<br>Name</h1>
+                <div class="info-section text-center">website desc
+                </div>
+                <button class="btn" onclick="window.location.href = 'staff.html';">Click here to explore the
+                    website link!</button>
+            </div>
+        </div>
     </div>
 
 
