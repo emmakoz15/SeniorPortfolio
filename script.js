@@ -38,16 +38,16 @@ $(document).ready(function () {
     //card1
     $("#color1").css("background-color", "red");
     $("#textChange1").text("Something from Freshman year");
-    $(".what-image").css("background-image", 'url("images/Ellipse3.png")');
+    $(".what-image").css("background-image", 'url("Webimages/junior1.png")');
     //card2
     $("#color2").css("background-color", "red");
     $("#textChange2").text("Something from Freshman year");
-    $(".offer-image").css("background-image", 'url("images/Ellipse3.png")');
+    $(".offer-image").css("background-image", 'url("Webimages/junior2.png")');
 
     //card3
     $("#color3").css("background-color", "red");
     $("#textChange2").text("Something from Freshman year");
-    $(".staff-image").css("background-image", 'url("images/Ellipse3.png")');
+    $(".staff-image").css("background-image", 'url("Webimages/junior3.png")');
   });
 
 
