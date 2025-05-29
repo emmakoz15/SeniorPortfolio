@@ -1,0 +1,278 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    min-height: 100vh;
+    color: #333;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext x='16' y='20' text-anchor='middle' font-size='20'%3E✈️%3C/text%3E%3C/svg%3E") 16 16, auto;
+}
+
+.terminal-header {
+    background: #ffbde8;
+    padding: 40px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.terminal-title {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #1e293b;
+    letter-spacing: 1px;
+}
+
+.terminal-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #64748b;
+    margin-top: 8px;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.departure-board {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 40px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.board-header {
+    color: #334155;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.flight-info {
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.flight-info:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext x='16' y='20' text-anchor='middle' font-size='20'%3E✈️%3C/text%3E%3C/svg%3E") 16 16, pointer;
+}
+
+.flight-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    color: #475569;
+}
+
+.flight-destination {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1e293b;
+}
+
+.flight-details {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.flight-gate {
+    background: #3b82f6;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext x='16' y='20' text-anchor='middle' font-size='20'%3E✈️%3C/text%3E%3C/svg%3E") 16 16, pointer;
+}
+
+.flight-status {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+    font-size: 0.8rem;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext x='16' y='20' text-anchor='middle' font-size='20'%3E✈️%3C/text%3E%3C/svg%3E") 16 16, pointer;
+}
+
+.status-active {
+    background: #9cecd1;
+    color: white;
+}
+
+.status-boarding {
+    background: #eaa6e3;
+    color: white;
+}
+
+.status-departed {
+    background: #e2e8f0;
+    color: #64748b;
+}
+
+.terminal-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.terminal-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.section-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 500;
+}
+
+.skill-gate {
+    display: inline-block;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 4px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.skill-gate:hover {
+    background: #e2e8f0;
+    border-color: #94a3b8;
+}
+
+.accomplishment-item {
+    background: #f8fafc;
+    border-left: 3px solid #3b82f6;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 0 4px 4px 0;
+    transition: all 0.2s ease;
+}
+
+.accomplishment-item:hover {
+    background: #f1f5f9;
+    border-left-color: #2563eb;
+}
+
+.accomplishment-title {
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.accomplishment-desc {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.contact-terminal {
+    background: #ffffff;
+    color: #475569;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 30px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.contact-info {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contact-item {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+    background: #f1f5f9;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext x='16' y='20' text-anchor='middle' font-size='20'%3E✈️%3C/text%3E%3C/svg%3E") 16 16, pointer;
+}
+
+.announcement-ticker {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    color: #1e40af;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    font-weight: 400;
+    border: 1px solid #bfdbfe;
+}
+
+@media (max-width: 768px) {
+    .terminal-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .flight-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .contact-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .terminal-title {
+        font-size: 1.8rem;
+    }
+}
