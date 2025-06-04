@@ -1,123 +1,580 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Customizing Tailwind for Inter font and rounded corners -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'DEFAULT': '0.75rem',
+                        'lg': '1rem',
+                        'xl': '1.25rem',
+                        '2xl': '1.75rem',
+                        '3xl': '2.25rem',
+                    },
+                    colors: {
+                        // Base feminine palette (can be used as default or for freshman)
+                        femme: {
+                            'bg-start': '#F5EEF8', // Very light, warm grey/pink
+                            'bg-end': '#EAEAEA',   // Light grey
+                            'text-dark': '#4A4E69', // Dark, desaturated purple-gray
+                            'text-light': '#7A7F9D', // Medium desaturated purple-gray
+                            'card-bg': '#FFFFFF', // Clean white
+                            'accent-rose': '#A28089',   // Muted Rose
+                            'accent-blue-gray': '#7C7B8E', // Muted Blue-Gray
+                            'accent-soft-gray': '#B5B9C3', // Soft Grey-Blue
+                            'accent-hover-rose': '#B8929A', // Slightly brighter rose for hover
+                            'accent-hover-blue-gray': '#8F8E9F', // Slightly brighter blue-gray for hover
+                            'accent-hover-soft-gray': '#C7CBD2', // Slightly brighter soft-gray for hover
+                        },
+                        // Year-specific palettes (modern, feminine, trending)
+                        year: {
+                            freshman: {
+                                'primary': '#A28089', // Muted Rose
+                                'secondary': '#7C7B8E', // Muted Blue-Gray
+                                'tertiary': '#B5B9C3', // Soft Grey-Blue
+                                'hover-primary': '#B8929A',
+                                'hover-secondary': '#8F8E9F',
+                                'hover-tertiary': '#C7CBD2',
+                            },
+                            sophomore: {
+                                'primary': '#FFD1DC', // Pastel Pink
+                                'secondary': '#B0E0E6', // Powder Blue
+                                'tertiary': '#FFFACD', // Lemon Chiffon
+                                'hover-primary': '#FFC0CB',
+                                'hover-secondary': '#A0D0D6',
+                                'hover-tertiary': '#FFF8B0',
+                            },
+                            junior: { // NEW JUNIOR COLORS
+                                'primary': '#C8A2C8', // Soft Mauve/Thistle
+                                'secondary': '#A0D6B4', // Soft Mint Green
+                                'tertiary': '#F5DEB3', // Soft Gold/Wheat
+                                'hover-primary': '#D8B2D8',
+                                'hover-secondary': '#B0E6C4',
+                                'hover-tertiary': '#FFF0C3',
+                            },
+                            senior: {
+                                'primary': '#4682B4', // Steel Blue (strong, mature)
+                                'secondary': '#F0F8FF', // Alice Blue (soft, clean)
+                                'tertiary': '#D8BFD8', // Thistle (muted purple)
+                                'hover-primary': '#5692C4',
+                                'hover-secondary': '#FFFFFF',
+                                'hover-tertiary': '#E8CFE8',
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Fallback font if Inter is not loaded */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
 
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        /* Custom CSS for buttons */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        .grade-btn {
+            background: linear-gradient(145deg, #FFFFFF, #F5F5F5);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 16px 12px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #4A4E69;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            text-transform: capitalize;
+            min-height: 60px;
+        }
 
-    <!--font Sora-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+        .grade-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            background: linear-gradient(145deg, #FDFDFD, #EFEFEF);
+        }
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        .grade-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
 
-    <!-- Google Fonts for typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kaisei+Decol&family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Madimi+One&display=swap"
-        rel="stylesheet">
+        /* Selected state for buttons, dynamically set by JS */
+        .grade-btn.selected {
+            background: linear-gradient(145deg, var(--selected-bg-start), var(--selected-bg-end));
+            color: var(--selected-text-color);
+            box-shadow: 0 4px 15px var(--selected-shadow-color), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 1px solid var(--selected-border-color);
+        }
 
+        /* Mobile responsive: 2x2 grid on small screens */
+        @media (max-width: 640px) {
+            .button-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                padding: 15px;
+            }
+            
+            .grade-btn {
+                font-size: 15px;
+                padding: 18px 12px;
+                min-height: 65px;
+            }
+        }
 
+        /* Very small screens */
+        @media (max-width: 400px) {
+            .button-grid {
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .grade-btn {
+                font-size: 14px;
+                padding: 16px 8px;
+            }
+        }
 
-    <!-- vue -->
-    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+        
+.back-to-home-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    padding: 12px;
+    color: #000000;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+}
 
+.back-to-home-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
 
-  
-    <!-- FontAwesome for icons (used in footer) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+.back-to-home-btn:active {
+    transform: translateY(0);
+}
 
+/* Plane icon */
+.plane-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transform: rotate(90deg);
+}
+    </style>
 </head>
+<body class="bg-gradient-to-br from-femme-bg-start to-femme-bg-end text-femme-text-dark font-inter p-4 sm:p-8 min-h-screen flex flex-col justify-center items-center">
 
-<body class="webbody">
-    
+     <!-- Back to Home Button with Icon -->
+    <button class="back-to-home-btn" onclick="window.location.href='index.html'">
+        <svg class="plane-icon" viewBox="0 0 24 24">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+        </svg>
+    </button>
 
+    <div class="max-w-6xl w-full mx-auto py-8 px-4">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center mb-6 text-femme-text-dark leading-tight">
+            My <span class="text-femme-accent-rose" id="portfolio-main-accent">Web</span>Sites
+        </h1>
+      
+
+        <!-- Buttons added here -->
         <div class="container mt-5 ">
-            <div class="row justify-content-center">
-            <div class=" col-3 ">
-                <button id = "fresh" class="class-div freshman">Freshman</button>
+            <div class="row justify-content-center button-grid">
+                <button id="fresh" class="class-div grade-btn selected" data-year="freshman">Freshman</button>
+                <button id="soph" class="class-div grade-btn" data-year="sophomore">Sophomore</button>
+                <button id="jun" class="class-div grade-btn" data-year="junior">Junior</button>
+                <button id="sen" class="class-div grade-btn" data-year="senior">Senior</button>
             </div>
-            <div class="col-3 ">
-                <button id = "soph" class="class-div sophomore">Sophomore</button>
+        </div>
+        <!-- End of buttons -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mt-12">
+            <!-- Card 1: Project Alpha -->
+            <div class="card-item bg-femme-card-bg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+                <img
+                    id="card-1-img"
+                    src="https://placehold.co/600x320/A28089/FFFFFF?text=Freshman+Project+1"
+                    alt="Screenshot of Project Alpha website"
+                    class="w-full h-52 object-cover rounded-t-xl border-b border-gray-100"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x320/cccccc/000000?text=Image+Not+Found';"
+                >
+                <div class="p-7">
+                    <h3 id="card-1-title" class="text-2xl font-bold mb-3 text-femme-accent-rose">Freshman Year Project Alpha</h3>
+                    <p id="card-1-desc" class="text-femme-text-light mb-5 text-base leading-relaxed">
+                        My first significant web project, focusing on foundational HTML/CSS skills.
+                    </p>
+                    <a
+                        id="card-1-link"
+                        href="https://www.example.com/freshman-project1"
+                        target="_blank"
+                        class="inline-flex items-center justify-center bg-femme-accent-rose text-white px-7 py-3 rounded-lg hover:bg-femme-accent-hover-rose transition-colors duration-200 text-lg font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-femme-accent-rose focus:ring-opacity-75"
+                    >
+                        View Website
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-6h6m0 0l-7 7"></path></svg>
+                    </a>
+                </div>
             </div>
-            <div class="col-3 ">
-                <button id = "jun" class="class-div junior">Junior</button>
+
+            <!-- Card 2: E-commerce Store -->
+            <div class="card-item bg-femme-card-bg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+                <img
+                    id="card-2-img"
+                    src="https://placehold.co/600x320/7C7B8E/FFFFFF?text=Freshman+Project+2"
+                    alt="Screenshot of E-commerce Store website"
+                    class="w-full h-52 object-cover rounded-t-xl border-b border-gray-100"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x320/cccccc/000000?text=Image+Not+Found';"
+                >
+                <div class="p-7">
+                    <h3 id="card-2-title" class="text-2xl font-bold mb-3 text-femme-accent-blue-gray">Freshman Year E-commerce Intro</h3>
+                    <p id="card-2-desc" class="text-femme-text-light mb-5 text-base leading-relaxed">
+                        An early attempt at an e-commerce layout, exploring basic product displays.
+                    </p>
+                    <a
+                        id="card-2-link"
+                        href="https://www.example.com/freshman-project2"
+                        target="_blank"
+                        class="inline-flex items-center justify-center bg-femme-accent-blue-gray text-white px-7 py-3 rounded-lg hover:bg-femme-accent-hover-blue-gray transition-colors duration-200 text-lg font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-femme-accent-blue-gray focus:ring-opacity-75"
+                    >
+                        View Website
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-6h6m0 0l-7 7"></path></svg>
+                    </a>
+                </div>
             </div>
-            <div class="col-3 ">
-                <button id = "sen" class="class-div senior">Senior</button>
+
+            <!-- Card 3: Blog Platform - Now spans 2 columns on medium screens -->
+            <div class="card-item bg-femme-card-bg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 md:col-span-2 lg:col-span-1">
+                <img
+                    id="card-3-img"
+                    src="https://placehold.co/600x320/B5B9C3/FFFFFF?text=Freshman+Project+3"
+                    alt="Screenshot of Blog Platform website"
+                    class="w-full h-52 object-cover rounded-t-xl border-b border-gray-100"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x320/cccccc/000000?text=Image+Not+Found';"
+                >
+                <div class="p-7">
+                    <h3 id="card-3-title" class="text-2xl font-bold mb-3 text-femme-accent-soft-gray">Freshman Year Blog Design</h3>
+                    <p id="card-3-desc" class="text-femme-text-light mb-5 text-base leading-relaxed">
+                        A simple blog page design, learning about content structure and typography.
+                    </p>
+                    <a
+                        id="card-3-link"
+                        href="https://www.example.com/freshman-project3"
+                        target="_blank"
+                        class="inline-flex items-center justify-center bg-femme-accent-soft-gray text-white px-7 py-3 rounded-lg hover:bg-femme-accent-hover-soft-gray transition-colors duration-200 text-lg font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-femme-accent-soft-gray focus:ring-opacity-75"
+                    >
+                        View Website
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-6h6m0 0l-7 7"></path></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Main content area -->
-    <div class="container">
+    <script>
+        // Data for each year's portfolio
+        const portfolioData = {
+            "freshman": {
+                buttonBgStart: '#A28089', // Muted Rose
+                buttonBgEnd: '#8F727A',
+                buttonTextColor: 'white',
+                buttonShadowColor: 'rgba(162, 128, 137, 0.4)',
+                buttonBorderColor: 'rgba(162, 128, 137, 0.6)',
+                mainAccentColorClass: 'text-femme-accent-rose', // For the 'Web' in title
+                cards: [
+                    {
+                        img: "https://placehold.co/600x320/A28089/FFFFFF?text=Freshman+Project+1",
+                        title: "Freshman Year Project Alpha",
+                        description: "My first significant web project, focusing on foundational HTML/CSS skills.",
+                        link: "https://www.example.com/freshman-project1",
+                        accentClass: "text-femme-accent-rose",
+                        buttonBgClass: "bg-femme-accent-rose",
+                        buttonHoverBgClass: "hover:bg-femme-accent-hover-rose",
+                        buttonRingClass: "focus:ring-femme-accent-rose",
+                        descTextColorClass: "text-femme-text-light" // Default light text
+                    },
+                    {
+                        img: "https://placehold.co/600x320/7C7B8E/FFFFFF?text=Freshman+Project+2",
+                        title: "Freshman Year E-commerce Intro",
+                        description: "An early attempt at an e-commerce layout, exploring basic product displays.",
+                        link: "https://www.example.com/freshman-project2",
+                        accentClass: "text-femme-accent-blue-gray",
+                        buttonBgClass: "bg-femme-accent-blue-gray",
+                        buttonHoverBgClass: "hover:bg-femme-accent-hover-blue-gray",
+                        buttonRingClass: "focus:ring-femme-accent-blue-gray",
+                        descTextColorClass: "text-femme-text-light"
+                    },
+                    {
+                        img: "https://placehold.co/600x320/B5B9C3/FFFFFF?text=Freshman+Project+3",
+                        title: "Freshman Year Blog Design",
+                        description: "A simple blog page design, learning about content structure and typography.",
+                        link: "https://www.example.com/freshman-project3",
+                        accentClass: "text-femme-accent-soft-gray",
+                        buttonBgClass: "bg-femme-accent-soft-gray",
+                        buttonHoverBgClass: "hover:bg-femme-accent-hover-soft-gray",
+                        buttonRingClass: "focus:ring-femme-accent-soft-gray",
+                        descTextColorClass: "text-femme-text-light"
+                    }
+                ]
+            },
+            "sophomore": {
+                buttonBgStart: '#FFD1DC', // Pastel Pink
+                buttonBgEnd: '#FFC0CB',
+                buttonTextColor: '#4A4E69', // Dark text for contrast
+                buttonShadowColor: 'rgba(255, 209, 220, 0.6)',
+                buttonBorderColor: 'rgba(255, 209, 220, 0.8)',
+                mainAccentColorClass: 'text-year-sophomore-primary',
+                cards: [
+                    {
+                        img: "Webimages/junior1.png", // Using uploaded image
+                        title: "Sophomore Year About Me Page",
+                        description: "Designed a personal 'About Me' page with interactive elements.",
+                        link: "https://www.example.com/sophomore-project1",
+                        accentClass: "text-year-sophomore-primary",
+                        buttonBgClass: "bg-year-sophomore-primary",
+                        buttonHoverBgClass: "hover:bg-year-sophomore-hover-primary",
+                        buttonRingClass: "focus:ring-year-sophomore-primary",
+                        descTextColorClass: "text-femme-text-light"
+                    },
+                    {
+                        img: "https://placehold.co/600x320/B0E0E6/4A4E69?text=Sophomore+Project+2",
+                        title: "Sophomore Year Responsive Portfolio",
+                        description: "Focused on creating a fully responsive portfolio site for various devices.",
+                        link: "https://www.example.com/sophomore-project2",
+                        accentClass: "text-year-sophomore-secondary",
+                        buttonBgClass: "bg-year-sophomore-secondary",
+                        buttonHoverBgClass: "hover:bg-year-sophomore-hover-secondary",
+                        buttonRingClass: "focus:ring-year-sophomore-secondary",
+                        descTextColorClass: "text-femme-text-light"
+                    },
+                    {
+                        img: "https://placehold.co/600x320/FFFACD/4A4E69?text=Sophomore+Project+3",
+                        title: "Sophomore Year Data Visualization",
+                        description: "Experimented with D3.js to create simple data visualizations.",
+                        link: "https://www.example.com/sophomore-project3",
+                        accentClass: "text-year-sophomore-tertiary",
+                        buttonBgClass: "bg-year-sophomore-tertiary",
+                        buttonHoverBgClass: "hover:bg-year-sophomore-hover-tertiary",
+                        buttonRingClass: "focus:ring-year-sophomore-tertiary",
+                        descTextColorClass: "text-femme-text-light"
+                    }
+                ]
+            },
+            "junior": {
+                buttonBgStart: '#C8A2C8', // Soft Mauve/Thistle
+                buttonBgEnd: '#B28CB2',
+                buttonTextColor: 'white',
+                buttonShadowColor: 'rgba(200, 162, 200, 0.6)',
+                buttonBorderColor: 'rgba(200, 162, 200, 0.8)',
+                mainAccentColorClass: 'text-year-junior-primary',
+                cards: [
+                    {
+                        img: "Webimages/junior1.png", // Using uploaded image
+                        title: "Junior Year Magic 8-Ball",
+                        description: "Developed an interactive Magic 8-Ball game using JavaScript.",
+                        link: "https://emmakoz15.github.io/magic-8ball/",
+                        accentClass: "text-year-junior-primary",
+                        buttonBgClass: "bg-year-junior-primary",
+                        buttonHoverBgClass: "hover:bg-year-junior-hover-primary",
+                        buttonRingClass: "focus:ring-year-junior-primary",
+                        descTextColorClass: "text-femme-text-light"
+                    },
+                    {
+                        img: "Webimages/junior2.png", // Using uploaded image
+                        title: "Junior Year Rock Paper Scissors",
+                        description: "Created a Rock Paper Scissors game with a simple AI opponent.",
+                        link: "https://emmakoz15.github.io/RPS/",
+                        accentClass: "text-year-junior-secondary",
+                        buttonBgClass: "bg-year-junior-secondary",
+                        buttonHoverBgClass: "hover:bg-year-junior-hover-secondary",
+                        buttonRingClass: "focus:ring-year-junior-secondary",
+                        descTextColorClass: "text-femme-text-light"
+                    },
+                    {
+                        img: "Webimages/junior3.png", // Using uploaded image
+                        title: "Junior Year Little Bird E-commerce",
+                        description: "Designed a mock e-commerce site for handmade toys, focusing on product display.",
+                        link: "https://emmakoz15.github.io/LBTC/",
+                        accentClass: "text-year-junior-tertiary",
+                        buttonBgClass: "bg-year-junior-tertiary",
+                        buttonHoverBgClass: "hover:bg-year-junior-hover-tertiary",
+                        buttonRingClass: "focus:ring-year-junior-tertiary",
+                        descTextColorClass: "text-femme-text-light"
+                    }
+                ]
+            },
+            "senior": {
+                buttonBgStart: '#4682B4', // Steel Blue
+                buttonBgEnd: '#3A70A0',
+                buttonTextColor: 'white',
+                buttonShadowColor: 'rgba(70, 130, 180, 0.6)',
+                buttonBorderColor: 'rgba(70, 130, 180, 0.8)',
+                mainAccentColorClass: 'text-year-senior-primary',
+                cards: [
+                    {
+                        img: "Webimages/senior1.png", // Using uploaded image
+                        title: "Senior Year University Redesign",
+                        description: "Redesigned a university's website focusing on improved navigation and aesthetics.",
+                        link: "https://emmakoz15.github.io/College-website/",
+                        accentClass: "text-year-senior-primary",
+                        buttonBgClass: "bg-year-senior-primary",
+                        buttonHoverBgClass: "hover:bg-year-senior-hover-primary",
+                        buttonRingClass: "focus:ring-year-senior-primary",
+                        descTextColorClass: "text-femme-text-light"
+                    },
+                    {
+                        img: "Webimages/senior2.png", // Using uploaded image
+                        title: "Senior Year Mars Travel Slideshow",
+                        description: "Created an interactive slideshow showcasing potential Mars travel destinations.",
+                        link: "https://emmakoz15.github.io/NJIT-project/",
+                        accentClass: "text-year-senior-secondary",
+                        buttonBgClass: "bg-year-senior-secondary",
+                        buttonHoverBgClass: "hover:bg-year-senior-hover-secondary",
+                        buttonRingClass: "focus:ring-year-senior-secondary",
+                        descTextColorClass: "text-femme-text-dark" // Made text darker
+                    },
+                    {
+                        img: "Webimages/senior3.png", // Using uploaded image
+                        title: "Senior Year IMDb Top Movies",
+                        description: "Developed a dynamic display of top movies from IMDb, featuring details and ratings.",
+                        link: "https://emmakoz15.github.io/NJIT-3_StarterFiles/",
+                        accentClass: "text-year-senior-tertiary",
+                        buttonBgClass: "bg-year-senior-tertiary",
+                        buttonHoverBgClass: "hover:bg-year-senior-hover-tertiary",
+                        buttonRingClass: "focus:ring-year-senior-tertiary",
+                        descTextColorClass: "text-femme-text-light"
+                    }
+                ]
+            }
+        };
 
-        <!-- Info boxes section with different content about the B-wing -->
-        <div class="row info-row d-flex justify-content-center align-items-center">
-            <div class="what-image col-12 order-lg-2 col-lg-6" id="what">
-            </div>
-            <div id="color1"
-                class="what-text col-12 order-lg-1 col-lg-6 d-flex flex-column justify-content-center align-items-center">
-                <h1 id="textChange1" class="text-center info-title">Website:<br>Name</h1>
-                <div class="info-section text-center">Website desc.
-                </div>
-                <button class="btn" onclick="window.location.href = 'rooms.html';">Click here to explore the
-                    website link!</button>
-            </div>
-        </div>
-        <div class="row info-row d-flex justify-content-center align-items-center">
-            <div class="offer-image col-12 col-lg-6"></div>
-            <div id="color2"
-            class="offer-text col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
-                <h1 id= "textChange2" class="text-center info-title">Website<br>Name</h1>
-                <div class="info-section text-center">Website desc.
-                </div>
-                <button class="btn" onclick="window.location.href = 'courses.html';">Click here to explore the
-                    website link!</button>
-            </div>
-        </div>
-        <div class="row info-row d-flex justify-content-center align-items-center">
-            <div class="staff-image col-12 order-lg-2 col-lg-6"></div>
-            <div id="color3"
-                class="staff-text col-12 order-lg-1 col-lg-6 d-flex flex-column justify-content-center align-items-center">
-                <h1 id= "textChange3" class="text-center info-title">Website<br>Name</h1>
-                <div class="info-section text-center">website desc
-                </div>
-                <button class="btn" onclick="window.location.href = 'staff.html';">Click here to explore the
-                    website link!</button>
-            </div>
-        </div>
-    </div>
+        $(document).ready(function () {
+            // Function to update card content and styles
+            function updateGallery(year) {
+                const yearData = portfolioData[year];
+                if (!yearData) {
+                    console.error("No data found for year:", year);
+                    return;
+                }
+
+                // Update main portfolio title accent color
+                const mainAccentSpan = $('#portfolio-main-accent');
+                // Remove all existing text-year-* classes and femme-accent-* classes
+                mainAccentSpan.removeClass(function(index, className) {
+                    return (className.match(/(^|\s)(text-year-\S+|text-femme-accent-\S+)/g) || []).join(' ');
+                });
+                // Add the new main accent color class
+                mainAccentSpan.addClass(yearData.mainAccentColorClass);
 
 
+                // Update selected button style
+                $('.grade-btn').removeClass('selected');
+                $(`.grade-btn[data-year="${year}"]`).addClass('selected');
 
-    <footer>
-        <!-- place footer here -->
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
+                // Apply dynamic CSS variables for the selected button's style
+                const selectedButton = $(`.grade-btn[data-year="${year}"]`)[0];
+                if (selectedButton) {
+                    selectedButton.style.setProperty('--selected-bg-start', yearData.buttonBgStart);
+                    selectedButton.style.setProperty('--selected-bg-end', yearData.buttonBgEnd);
+                    selectedButton.style.setProperty('--selected-text-color', yearData.buttonTextColor);
+                    selectedButton.style.setProperty('--selected-shadow-color', yearData.buttonShadowColor);
+                    selectedButton.style.setProperty('--selected-border-color', yearData.buttonBorderColor);
+                }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
 
-    <!--my js-->
-    <script src="script.js"></script>
+                // Update cards
+                yearData.cards.forEach((card, index) => {
+                    const cardNum = index + 1;
+                    const imgElement = $(`#card-${cardNum}-img`);
+                    const titleElement = $(`#card-${cardNum}-title`);
+                    const descElement = $(`#card-${cardNum}-desc`);
+                    const linkElement = $(`#card-${cardNum}-link`);
+
+                    // Update image
+                    imgElement.attr('src', card.img);
+
+                    // Update title
+                    titleElement.text(card.title);
+                    // Remove existing accent classes and add new one
+                    titleElement.removeClass(function(idx, className) {
+                        return (className.match(/(^|\s)text-(femme|year)-\S+/g) || []).join(' ');
+                    }).addClass(card.accentClass);
+
+                    // Update description text and color
+                    descElement.text(card.description);
+                    // Remove existing text-femme-text-* classes and add new one
+                    descElement.removeClass(function(idx, className) {
+                        return (className.match(/(^|\s)text-femme-text-\S+/g) || []).join(' ');
+                    }).addClass(card.descTextColorClass);
+
+
+                    // Update link
+                    linkElement.attr('href', card.link);
+                    // Remove existing button background and hover classes, then add new ones
+                    linkElement.removeClass(function(idx, className) {
+                        return (className.match(/(^|\s)(bg|hover:bg|focus:ring)-(femme|year)-\S+/g) || []).join(' ');
+                    })
+                    .addClass(card.buttonBgClass)
+                    .addClass(card.buttonHoverBgClass)
+                    .addClass(card.buttonRingClass);
+                });
+            }
+
+            // Initial load: display Freshman projects
+            updateGallery('freshman');
+
+            // Click handlers for the year buttons
+            $("#fresh").click(function () {
+                updateGallery('freshman');
+            });
+
+            $("#soph").click(function () {
+                updateGallery('sophomore');
+            });
+
+            $("#jun").click(function () {
+                updateGallery('junior');
+            });
+
+            $("#sen").click(function () {
+                updateGallery('senior');
+            });
+        });
+    </script>
 </body>
-
 </html>
