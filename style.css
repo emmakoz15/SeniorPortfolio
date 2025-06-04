@@ -3,251 +3,247 @@
 
 /*index*/
 
- .indexbody {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #e8e8e8, #d0d0d0);
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+    /*index*/
 
-        .airplane-wall {
-            background: linear-gradient(135deg, #f0f0f0, #d8d8d8);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
+    .indexbody {
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #e8e8e8, #d0d0d0);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
 
-        .title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #555;
-            margin: 0 0 30px 0;
-            letter-spacing: 2px;
-            text-transform: lowercase;
-            font-family: 'Georgia', serif;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .airplane-wall {
+        background: linear-gradient(135deg, #f0f0f0, #d8d8d8);
+        padding: 50px 60px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+    }
 
-        .windows-container {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+    .title {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: #555;
+        margin: 0 0 40px 0;
+        letter-spacing: 2px;
+        text-transform: lowercase;
+        font-family: 'Georgia', serif;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .window {
-            width: 120px;
-            height: 150px;
-            background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
-            border-radius: 60px;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: block;
-            box-shadow: 
-                inset 0 -5px 10px rgba(0, 0, 0, 0.3),
-                inset 0 5px 10px rgba(255, 255, 255, 0.3),
-                0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+    .windows-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        max-width: 500px;
+        margin: 0 auto;
+    }
 
-        .window::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            right: 8px;
-            bottom: 8px;
-            background: 
-                linear-gradient(180deg, #87CEEB 0%, #B6E3FF 40%, #4A90E2 70%, #2E5BBA 100%);
-            border-radius: 52px;
-            box-shadow: 
-                inset 0 2px 5px rgba(0, 0, 0, 0.1),
-                0 0 10px rgba(255, 255, 255, 0.5);
-        }
+    .window {
+        width: 120px;
+        height: 150px;
+        background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+        border-radius: 60px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: block;
+        box-shadow: 
+            inset 0 -5px 10px rgba(0, 0, 0, 0.3),
+            inset 0 5px 10px rgba(255, 255, 255, 0.3),
+            0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-        .window::after {
-            content: '';
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            right: 12px;
-            bottom: 12px;
-            background: rgba(173, 216, 230, 0.3);
-            border-radius: 48px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+.window::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    background: 
+        linear-gradient(180deg, #87CEEB 0%, #B6E3FF 40%, #4A90E2 70%, #2E5BBA 100%);
+    border-radius: 52px;
+    box-shadow: 
+        inset 0 2px 5px rgba(0, 0, 0, 0.1),
+        0 0 10px rgba(255, 255, 255, 0.5);
+}
 
-        .window:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 
-                inset 0 -5px 10px rgba(0, 0, 0, 0.3),
-                inset 0 5px 10px rgba(255, 255, 255, 0.3),
-                0 8px 25px rgba(0, 0, 0, 0.3);
-        }
+.window::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    background: rgba(173, 216, 230, 0.3);
+    border-radius: 48px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-        .window:hover::after {
-            opacity: 0.8;
-        }
+.window:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        inset 0 -5px 10px rgba(0, 0, 0, 0.3),
+        inset 0 5px 10px rgba(255, 255, 255, 0.3),
+        0 8px 25px rgba(0, 0, 0, 0.3);
+}
 
-        .window:active {
-            transform: translateY(-1px) scale(1.02);
-        }
+.window:hover::after {
+    opacity: 0.8;
+}
 
-        /* Individual window styling with background images */
-        .window:nth-child(1)::after { 
-            background-image: url('images/webdesignlogo.png');
-        }
-        .window:nth-child(2)::after { 
-            background-image: url('images/google-classroom-icon-logo-symbol-free-png.webp');
-        }
-        .window:nth-child(3)::after { 
-            background-image: url('images/2704c1bfdd66d576192a7a98b5b87bb22f8a63ca.png');
-        }
-        .window:nth-child(4)::after { 
-            background-image: url('images/resume.png');
-        }
+.window:active {
+    transform: translateY(-1px) scale(1.02);
+}
 
-        /* Landscape and cloud effects for realistic airplane view */
-        .window .landscape {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border-radius: 45px;
-            background: 
-                /* Clouds in upper sky */
-                radial-gradient(ellipse 60px 25px at 30% 25%, rgba(255,255,255,0.8) 30%, transparent 70%),
-                radial-gradient(ellipse 40px 20px at 70% 20%, rgba(255,255,255,0.6) 25%, transparent 65%),
-                radial-gradient(ellipse 50px 22px at 50% 30%, rgba(255,255,255,0.7) 28%, transparent 68%),
-                /* Distant mountains/hills */
-                linear-gradient(180deg, transparent 60%, rgba(76, 123, 89, 0.6) 65%, rgba(89, 142, 108, 0.8) 75%, rgba(102, 160, 127, 0.9) 85%, rgba(115, 178, 146, 1) 100%),
-                /* Fields and landscape */
-                linear-gradient(180deg, transparent 75%, rgba(144, 189, 123, 0.4) 80%, rgba(167, 201, 87, 0.6) 90%, rgba(186, 218, 85, 0.8) 100%);
-            pointer-events: none;
-            overflow: hidden;
-        }
+/* Individual window styling with background images */
+.window:nth-child(1)::after { 
+    background-image: url('images/webdesignlogo.png');
+}
+.window:nth-child(2)::after { 
+    background-image: url('images/google-classroom-icon-logo-symbol-free-png.webp');
+}
+.window:nth-child(3)::after { 
+    background-image: url('images/resume.png');
+}
 
-        /* Wing element for some windows */
-        .window:nth-child(2) .landscape::after,
-        .window:nth-child(4) .landscape::after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            right: -15px;
-            width: 70px;
-            height: 35px;
-            background: linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 30%, #A0A0A0 70%, #808080 100%);
-            transform: skew(-20deg, 3deg);
-            border-radius: 8px 20px 5px 0;
-            box-shadow: 
-                0 -3px 8px rgba(0,0,0,0.4),
-                inset 0 2px 4px rgba(255,255,255,0.3),
-                inset 0 -2px 4px rgba(0,0,0,0.2);
-            z-index: 2;
-        }
+/* Landscape and cloud effects for realistic airplane view */
+.window .landscape {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 45px;
+    background: 
+        /* Clouds in upper sky */
+        radial-gradient(ellipse 60px 25px at 30% 25%, rgba(255,255,255,0.8) 30%, transparent 70%),
+        radial-gradient(ellipse 40px 20px at 70% 20%, rgba(255,255,255,0.6) 25%, transparent 65%),
+        radial-gradient(ellipse 50px 22px at 50% 30%, rgba(255,255,255,0.7) 28%, transparent 68%),
+        /* Distant mountains/hills */
+        linear-gradient(180deg, transparent 60%, rgba(76, 123, 89, 0.6) 65%, rgba(89, 142, 108, 0.8) 75%, rgba(102, 160, 127, 0.9) 85%, rgba(115, 178, 146, 1) 100%),
+        /* Fields and landscape */
+        linear-gradient(180deg, transparent 75%, rgba(144, 189, 123, 0.4) 80%, rgba(167, 201, 87, 0.6) 90%, rgba(186, 218, 85, 0.8) 100%);
+    pointer-events: none;
+    overflow: hidden;
+}
 
-        /* Wing details - rivets and panel lines */
-        .window:nth-child(2) .landscape::before,
-        .window:nth-child(4) .landscape::before {
-            content: '';
-            position: absolute;
-            bottom: 15px;
-            right: -10px;
-            width: 60px;
-            height: 25px;
-            background: 
-                linear-gradient(90deg, transparent 20%, rgba(0,0,0,0.1) 22%, transparent 24%),
-                linear-gradient(90deg, transparent 40%, rgba(0,0,0,0.1) 42%, transparent 44%),
-                radial-gradient(circle 1px at 30% 40%, rgba(0,0,0,0.3) 50%, transparent 50%),
-                radial-gradient(circle 1px at 50% 60%, rgba(0,0,0,0.3) 50%, transparent 50%),
-                radial-gradient(circle 1px at 70% 40%, rgba(0,0,0,0.3) 50%, transparent 50%);
-            transform: skew(-20deg, 3deg);
-            border-radius: 8px 20px 5px 0;
-            z-index: 3;
-        }
+/* Wing element for some windows */
+.window:nth-child(2) .landscape::after,
+.window:nth-child(3) .landscape::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    right: -15px;
+    width: 70px;
+    height: 35px;
+    background: linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 30%, #A0A0A0 70%, #808080 100%);
+    transform: skew(-20deg, 3deg);
+    border-radius: 8px 20px 5px 0;
+    box-shadow: 
+        0 -3px 8px rgba(0,0,0,0.4),
+        inset 0 2px 4px rgba(255,255,255,0.3),
+        inset 0 -2px 4px rgba(0,0,0,0.2);
+    z-index: 2;
+}
 
-        /* Different landscape variations for each window */
-        .window:nth-child(1) .landscape {
-            background: 
-                radial-gradient(ellipse 55px 20px at 25% 20%, rgba(255,255,255,0.9) 25%, transparent 65%),
-                radial-gradient(ellipse 45px 18px at 75% 25%, rgba(255,255,255,0.7) 20%, transparent 60%),
-                linear-gradient(180deg, transparent 65%, rgba(76, 123, 89, 0.5) 70%, rgba(102, 160, 127, 0.9) 85%, rgba(144, 189, 123, 1) 100%);
-        }
+/* Wing details - rivets and panel lines */
+.window:nth-child(2) .landscape::before,
+.window:nth-child(3) .landscape::before {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    right: -10px;
+    width: 60px;
+    height: 25px;
+    background: 
+        linear-gradient(90deg, transparent 20%, rgba(0,0,0,0.1) 22%, transparent 24%),
+        linear-gradient(90deg, transparent 40%, rgba(0,0,0,0.1) 42%, transparent 44%),
+        radial-gradient(circle 1px at 30% 40%, rgba(0,0,0,0.3) 50%, transparent 50%),
+        radial-gradient(circle 1px at 50% 60%, rgba(0,0,0,0.3) 50%, transparent 50%),
+        radial-gradient(circle 1px at 70% 40%, rgba(0,0,0,0.3) 50%, transparent 50%);
+    transform: skew(-20deg, 3deg);
+    border-radius: 8px 20px 5px 0;
+    z-index: 3;
+}
 
-        .window:nth-child(3) .landscape {
-            background: 
-                radial-gradient(ellipse 50px 30px at 40% 15%, rgba(255,255,255,0.8) 30%, transparent 70%),
-                radial-gradient(ellipse 35px 15px at 80% 25%, rgba(255,255,255,0.6) 25%, transparent 65%),
-                linear-gradient(180deg, transparent 60%, rgba(89, 142, 108, 0.6) 65%, rgba(115, 178, 146, 0.8) 80%, rgba(167, 201, 87, 1) 100%);
-        }
+/* Different landscape variations for each window */
+.window:nth-child(1) .landscape {
+    background: 
+        radial-gradient(ellipse 55px 20px at 25% 20%, rgba(255,255,255,0.9) 25%, transparent 65%),
+        radial-gradient(ellipse 45px 18px at 75% 25%, rgba(255,255,255,0.7) 20%, transparent 60%),
+        linear-gradient(180deg, transparent 65%, rgba(76, 123, 89, 0.5) 70%, rgba(102, 160, 127, 0.9) 85%, rgba(144, 189, 123, 1) 100%);
+}
 
-        /* Tooltip on hover */
-        .window {
-            position: relative;
-        }
+/* Tooltip on hover */
+.window {
+    position: relative;
+}
 
-        .window:hover::before {
-            box-shadow: 
-                inset 0 2px 5px rgba(0, 0, 0, 0.1),
-                0 0 20px rgba(255, 255, 255, 0.8);
-        }
+.window:hover::before {
+    box-shadow: 
+        inset 0 2px 5px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(255, 255, 255, 0.8);
+}
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2rem;
-                margin-bottom: 20px;
-            }
-            
-            .windows-container {
-                gap: 20px;
-            }
-            
-            .window {
-                width: 80px;
-                height: 100px;
-                border-radius: 40px;
-            }
-            
-            .window::before {
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-                border-radius: 34px;
-            }
-        }
+/* Responsive design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .windows-container {
+        gap: 20px;
+    }
+    
+    .window {
+        width: 80px;
+        height: 100px;
+        border-radius: 40px;
+    }
+    
+    .window::before {
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        bottom: 6px;
+        border-radius: 34px;
+    }
+}
 
-        @media (max-width: 480px) {
-            .title {
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-                letter-spacing: 1px;
-            }
-            
-            .windows-container {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-            
-            .window {
-                width: 60px;
-                height: 80px;
-                border-radius: 30px;
-            }
-        }
-
-
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+    }
+    
+    .windows-container {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .window {
+        width: 60px;
+        height: 80px;
+        border-radius: 30px;
+    }
+}
 
 
 
@@ -607,3 +603,48 @@
     font-family: "KoHo", serif;
 }
 
+
+
+
+
+
+/* Back to Home Button Styles (Plane Icon) */
+.back-to-home-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    padding: 12px;
+    color: #000000;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+}
+
+.back-to-home-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+.back-to-home-btn:active {
+    transform: translateY(0);
+}
+
+/* Plane icon */
+.plane-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transform: rotate(90deg);
+}
