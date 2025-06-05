@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website Portfolio</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Customizing Tailwind for Inter font and rounded corners -->
     <script>
         tailwind.config = {
             theme: {
@@ -201,8 +198,7 @@
 </head>
 <body class="bg-gradient-to-br from-femme-bg-start to-femme-bg-end text-femme-text-dark font-inter p-4 sm:p-8 min-h-screen flex flex-col justify-center items-center">
 
-     <!-- Back to Home Button with Icon -->
-    <button class="back-to-home-btn" onclick="window.location.href='index.html'">
+      <button class="back-to-home-btn" onclick="window.location.href='index.html'">
         <svg class="plane-icon" viewBox="0 0 24 24">
             <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
         </svg>
@@ -214,7 +210,6 @@
         </h1>
       
 
-        <!-- Buttons added here -->
         <div class="container mt-5 ">
             <div class="row justify-content-center button-grid">
                 <button id="fresh" class="class-div grade-btn selected" data-year="freshman">Freshman</button>
@@ -223,10 +218,7 @@
                 <button id="sen" class="class-div grade-btn" data-year="senior">Senior</button>
             </div>
         </div>
-        <!-- End of buttons -->
-
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mt-12">
-            <!-- Card 1: Project Alpha -->
             <div class="card-item bg-femme-card-bg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
                 <img
                     id="card-1-img"
@@ -240,19 +232,20 @@
                     <p id="card-1-desc" class="text-femme-text-light mb-5 text-base leading-relaxed">
                         My first significant web project, focusing on foundational HTML/CSS skills.
                     </p>
+                    <div id="card-1-link-container">
                     <a
                         id="card-1-link"
-                        href="https://www.example.com/freshman-project1"
+                        href="#"
                         target="_blank"
                         class="inline-flex items-center justify-center bg-femme-accent-rose text-white px-7 py-3 rounded-lg hover:bg-femme-accent-hover-rose transition-colors duration-200 text-lg font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-femme-accent-rose focus:ring-opacity-75"
                     >
                         View Website
                         <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-6h6m0 0l-7 7"></path></svg>
                     </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card 2: E-commerce Store -->
             <div class="card-item bg-femme-card-bg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
                 <img
                     id="card-2-img"
@@ -266,19 +259,20 @@
                     <p id="card-2-desc" class="text-femme-text-light mb-5 text-base leading-relaxed">
                         An early attempt at an e-commerce layout, exploring basic product displays.
                     </p>
+                    <div id="card-2-link-container">
                     <a
                         id="card-2-link"
-                        href="https://www.example.com/freshman-project2"
+                        href="#"
                         target="_blank"
                         class="inline-flex items-center justify-center bg-femme-accent-blue-gray text-white px-7 py-3 rounded-lg hover:bg-femme-accent-hover-blue-gray transition-colors duration-200 text-lg font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-femme-accent-blue-gray focus:ring-opacity-75"
                     >
                         View Website
                         <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-6h6m0 0l-7 7"></path></svg>
                     </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card 3: Blog Platform - Now spans 2 columns on medium screens -->
             <div class="card-item bg-femme-card-bg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 md:col-span-2 lg:col-span-1">
                 <img
                     id="card-3-img"
@@ -292,15 +286,17 @@
                     <p id="card-3-desc" class="text-femme-text-light mb-5 text-base leading-relaxed">
                         A simple blog page design, learning about content structure and typography.
                     </p>
+                    <div id="card-3-link-container">
                     <a
                         id="card-3-link"
-                        href="https://www.example.com/freshman-project3"
+                        href="#"
                         target="_blank"
                         class="inline-flex items-center justify-center bg-femme-accent-soft-gray text-white px-7 py-3 rounded-lg hover:bg-femme-accent-hover-soft-gray transition-colors duration-200 text-lg font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-femme-accent-soft-gray focus:ring-opacity-75"
                     >
                         View Website
                         <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-6h6m0 0l-7 7"></path></svg>
                     </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -318,10 +314,10 @@
                 mainAccentColorClass: 'text-femme-accent-rose', // For the 'Web' in title
                 cards: [
                     {
-                        img: "https://placehold.co/600x320/A28089/FFFFFF?text=Freshman+Project+1",
-                        title: "Freshman Year Project Alpha",
-                        description: "My first significant web project, focusing on foundational HTML/CSS skills.",
-                        link: "https://www.example.com/freshman-project1",
+                        img: "Webimages/electronic1.png",
+                        title: "ELECTRONICS PROJECT",
+                        description: "Before there were fully designed Website i took electronics with Mr. Kilgore and he conviced me to take webdesign",
+                        link: "", // Removed link for freshman projects
                         accentClass: "text-femme-accent-rose",
                         buttonBgClass: "bg-femme-accent-rose",
                         buttonHoverBgClass: "hover:bg-femme-accent-hover-rose",
@@ -329,10 +325,10 @@
                         descTextColorClass: "text-femme-text-light" // Default light text
                     },
                     {
-                        img: "https://placehold.co/600x320/7C7B8E/FFFFFF?text=Freshman+Project+2",
-                        title: "Freshman Year E-commerce Intro",
-                        description: "An early attempt at an e-commerce layout, exploring basic product displays.",
-                        link: "https://www.example.com/freshman-project2",
+                        img: "Webimages/electronics2.png",
+                        title: "Freshman Year design Process",
+                        description: "We were taught to go through plan and design a process that would be used in Web Design for every Project. ",
+                        link: "", // Removed link for freshman projects
                         accentClass: "text-femme-accent-blue-gray",
                         buttonBgClass: "bg-femme-accent-blue-gray",
                         buttonHoverBgClass: "hover:bg-femme-accent-hover-blue-gray",
@@ -340,10 +336,10 @@
                         descTextColorClass: "text-femme-text-light"
                     },
                     {
-                        img: "https://placehold.co/600x320/B5B9C3/FFFFFF?text=Freshman+Project+3",
-                        title: "Freshman Year Blog Design",
-                        description: "A simple blog page design, learning about content structure and typography.",
-                        link: "https://www.example.com/freshman-project3",
+                        img: "Webimages/ledsign.jpg",
+                        title: "Freshman Year LED SIGN",
+                        description: "",
+                        link: "", // Removed link for freshman projects
                         accentClass: "text-femme-accent-soft-gray",
                         buttonBgClass: "bg-femme-accent-soft-gray",
                         buttonHoverBgClass: "hover:bg-femme-accent-hover-soft-gray",
@@ -361,10 +357,10 @@
                 mainAccentColorClass: 'text-year-sophomore-primary',
                 cards: [
                     {
-                        img: "Webimages/junior1.png", // Using uploaded image
-                        title: "Sophomore Year About Me Page",
-                        description: "Designed a personal 'About Me' page with interactive elements.",
-                        link: "https://www.example.com/sophomore-project1",
+                        img: "Webimages/sophomore2.png", // Using uploaded image
+                        title: "Hello World",
+                        description: "The First Step into Web Design with an unique twist",
+                        link: "",
                         accentClass: "text-year-sophomore-primary",
                         buttonBgClass: "bg-year-sophomore-primary",
                         buttonHoverBgClass: "hover:bg-year-sophomore-hover-primary",
@@ -372,10 +368,10 @@
                         descTextColorClass: "text-femme-text-light"
                     },
                     {
-                        img: "https://placehold.co/600x320/B0E0E6/4A4E69?text=Sophomore+Project+2",
-                        title: "Sophomore Year Responsive Portfolio",
-                        description: "Focused on creating a fully responsive portfolio site for various devices.",
-                        link: "https://www.example.com/sophomore-project2",
+                        img: "Webimages/sophomore1.png",
+                        title: "Sophomore Year How To Project",
+                        description: "Created a website on 'How To Go To Space'",
+                        link: "",
                         accentClass: "text-year-sophomore-secondary",
                         buttonBgClass: "bg-year-sophomore-secondary",
                         buttonHoverBgClass: "hover:bg-year-sophomore-hover-secondary",
@@ -383,14 +379,14 @@
                         descTextColorClass: "text-femme-text-light"
                     },
                     {
-                        img: "https://placehold.co/600x320/FFFACD/4A4E69?text=Sophomore+Project+3",
-                        title: "Sophomore Year Data Visualization",
-                        description: "Experimented with D3.js to create simple data visualizations.",
-                        link: "https://www.example.com/sophomore-project3",
-                        accentClass: "text-year-sophomore-tertiary",
-                        buttonBgClass: "bg-year-sophomore-tertiary",
-                        buttonHoverBgClass: "hover:bg-year-sophomore-hover-tertiary",
-                        buttonRingClass: "focus:ring-year-sophomore-tertiary",
+                        img: "Webimages/sophomore3.png",
+                        title: "Sophomore Year About Me Page",
+                        description: "Designed a personal 'About Me' page with interactive elements.",
+                        link: "https://emmakoz15.github.io/about-me/",
+                        accentClass: "text-year-sophomore-primary",
+                        buttonBgClass: "bg-year-sophomore-primary",
+                        buttonHoverBgClass: "hover:bg-year-sophomore-hover-primary",
+                        buttonRingClass: "focus:ring-year-sophomore-primary",
                         descTextColorClass: "text-femme-text-light"
                     }
                 ]
@@ -465,7 +461,7 @@
                         accentClass: "text-year-senior-secondary",
                         buttonBgClass: "bg-year-senior-secondary",
                         buttonHoverBgClass: "hover:bg-year-senior-hover-secondary",
-                        buttonRingClass: "focus:ring-year-senior-secondary",
+                        buttonRingClass: "focus:ring-year-secondary",
                         descTextColorClass: "text-femme-text-dark" // Made text darker
                     },
                     {
@@ -523,7 +519,7 @@
                     const imgElement = $(`#card-${cardNum}-img`);
                     const titleElement = $(`#card-${cardNum}-title`);
                     const descElement = $(`#card-${cardNum}-desc`);
-                    const linkElement = $(`#card-${cardNum}-link`);
+                    const linkContainer = $(`#card-${cardNum}-link-container`); // Get the container for the link
 
                     // Update image
                     imgElement.attr('src', card.img);
@@ -543,15 +539,22 @@
                     }).addClass(card.descTextColorClass);
 
 
-                    // Update link
-                    linkElement.attr('href', card.link);
-                    // Remove existing button background and hover classes, then add new ones
-                    linkElement.removeClass(function(idx, className) {
-                        return (className.match(/(^|\s)(bg|hover:bg|focus:ring)-(femme|year)-\S+/g) || []).join(' ');
-                    })
-                    .addClass(card.buttonBgClass)
-                    .addClass(card.buttonHoverBgClass)
-                    .addClass(card.buttonRingClass);
+                    // Update link or remove if empty
+                    if (card.link) {
+                        linkContainer.html(`
+                            <a
+                                id="card-${cardNum}-link"
+                                href="${card.link}"
+                                target="_blank"
+                                class="inline-flex items-center justify-center ${card.buttonBgClass} text-white px-7 py-3 rounded-lg ${card.buttonHoverBgClass} transition-colors duration-200 text-lg font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 ${card.buttonRingClass} focus:ring-opacity-75"
+                            >
+                                View Website
+                                <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-6h6m0 0l-7 7"></path></svg>
+                            </a>
+                        `);
+                    } else {
+                        linkContainer.empty(); // Remove the link if it's empty
+                    }
                 });
             }
 
