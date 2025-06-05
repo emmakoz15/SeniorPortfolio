@@ -109,12 +109,15 @@
 
 /* Individual window styling with background images */
 .window:nth-child(1)::after { 
-    background-image: url('images/webdesignlogo.png');
+    background-image: url('images/IMG_8259.jpg');
 }
 .window:nth-child(2)::after { 
-    background-image: url('images/google-classroom-icon-logo-symbol-free-png.webp');
+    background-image: url('images/webdesignlogo.png');
 }
 .window:nth-child(3)::after { 
+    background-image: url('images/google-classroom-icon-logo-symbol-free-png.webp');
+}
+.window:nth-child(4)::after { 
     background-image: url('images/resume.png');
 }
 

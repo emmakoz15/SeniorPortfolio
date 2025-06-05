@@ -3,85 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emma Kozlovsky - Digital Horizon</title>
-    <!-- Google Fonts Import -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Emma Kozlovsky - Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom font for the page */
-        body {
-            font-family: 'Inter', sans-serif; /* Default body font */
-            background: linear-gradient(to bottom right, #1A202C, #2D3748); /* Dark blue-gray to slightly lighter */
+        /* Custom Tailwind Configuration */
+        :root {
+            --color-primary: #2d2d2d;
+            --color-accent: #7aa3a3; /* Muted Teal */
+            --color-highlight: #d19eaf; /* Muted Pink */
+            --color-text: #e0e0e0;
         }
-        /* Custom font for headings */
-        .font-rajdhani {
-            font-family: 'Rajdhani', sans-serif;
+
+        /* Extend Tailwind with custom colors */
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @layer base {
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: var(--color-primary);
+                color: var(--color-text);
+            }
+        }
+
+        @layer utilities {
+            .bg-primary { background-color: var(--color-primary); }
+            .bg-accent { background-color: var(--color-accent); }
+            .bg-highlight { background-color: var(--color-highlight); }
+            .text-primary { color: var(--color-primary); }
+            .text-accent { color: var(--color-accent); }
+            .text-highlight { color: var(--color-highlight); }
+            .text-text { color: var(--color-text); }
+        }
+
+        /* Custom Styles for Browser-like elements */
+        .browser-header {
+            background-color: #3e3e3e; /* Slightly lighter dark charcoal */
+            border-bottom: 1px solid #1a1a1a;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .browser-tab {
+            background-color: var(--color-primary);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 8px 20px;
+            position: relative;
+            top: 1px;
+            left: 0;
+            z-index: 10;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .browser-tab:hover {
+            background-color: #383838; /* Slightly lighter on hover */
+        }
+
+        .bookmark-nav a {
+            padding: 8px 16px;
+            border-radius: 6px;
+            /* Removed margin-right: 8px; as gap-2 on parent handles it */
+            background-color: #444; /* Darker than tab for bookmark effect */
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            white-space: nowrap;
+        }
+
+        .bookmark-nav a:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .bookmark-nav a.active {
+            background-color: var(--color-highlight);
+            color: var(--color-primary);
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        /* Tabs within sections */
+        .tab-button {
+            padding: 10px 20px;
+            border-radius: 6px 6px 0 0;
+            background-color: #444;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-button:hover {
+            background-color: #555;
+        }
+
+        .tab-button.active {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-highlight);
+        }
+
+        .tab-content {
+            background-color: #383838; /* Darker than main content for nested tab look */
+            border-radius: 0 6px 6px 6px;
+            padding: 20px;
+        }
+
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #383838;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            right: 0;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: var(--color-text);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+            color: var(--color-accent);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 100; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--color-primary);
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .close-button {
+            color: var(--color-highlight);
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            animation: glitch-animation 1s infinite alternate;
+        }
+
+        @keyframes glitch-animation {
+            0% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+                filter: hue-rotate(90deg);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+                filter: hue-rotate(180deg);
+            }
+            60% {
+                transform: translate(2px, 2px);
+                filter: hue-rotate(270deg);
+            }
+            80% {
+                transform: translate(2px, -2px);
+                filter: hue-rotate(360deg);
+            }
+            100% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+        }
+
+        /* Initial page load transition */
+        body {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Inspect Element Easter Egg */
+        .inspect-element-trigger {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0,0,0,0.5);
+            color: var(--color-text);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .inspect-element-trigger.visible {
+            opacity: 1;
+            pointer-events: all;
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
-    <div class="bg-gray-800 p-8 rounded-xl shadow-2xl max-w-3xl w-full text-center border border-gray-700">
-        <!-- Page Title - Evoking a cosmic or digital display -->
-        <h1 class="text-4xl font-extrabold text-white mb-4 tracking-tight font-rajdhani">
-            <span class="text-purple-400">EXPLORING:</span> EMMA KOZLOVSKY'S HORIZON
-        </h1>
-        <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-            Welcome to my digital space. Discover my journey, skills, and contributions in the ever-evolving tech landscape.
-        </p>
+<body class="flex flex-col min-h-screen">
 
-        <!-- About Me Section -->
-        <div class="grid md:grid-cols-3 gap-6 mb-10 items-center">
-            <!-- Image Placeholder -->
-            <div class="md:col-span-1 flex justify-center">
-                <div class="relative w-48 h-48 rounded-full overflow-hidden border-4 border-purple-500 shadow-lg">
-                    <img src="https://placehold.co/192x192/4A5568/CBD5E0?text=Emma+Kozlovsky"
-                         alt="Placeholder for Emma Kozlovsky's profile image"
-                         class="w-full h-full object-cover"
-                         onerror="this.onerror=null;this.src='https://placehold.co/192x192/4A5568/CBD5E0?text=Image+Not+Found';">
-                    <div class="absolute inset-0 bg-gradient-to-t from-purple-700/30 to-transparent rounded-full"></div>
-                </div>
+    <!-- Browser Header -->
+    <header class="browser-header w-full flex items-end p-2 relative z-20">
+        <div class="browser-tab flex items-center shadow-lg relative -mb-1 mr-2 cursor-pointer">
+            <span class="w-3 h-3 rounded-full bg-red-500 mr-1 opacity-70"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500 mr-1 opacity-70"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500 mr-3 opacity-70"></span>
+            <span class="text-sm font-semibold text-text whitespace-nowrap">Emma Kozlovsky - Portfolio</span>
+            <button class="ml-4 text-xs text-gray-400 hover:text-white transition-colors">x</button>
+        </div>
+        <div class="flex-grow bg-gray-600 h-8 rounded-t-lg shadow-inner"></div>
+    </header>
+
+    <!-- Navigation (Bookmarks) -->
+    <nav class="bookmark-nav bg-primary p-4 flex flex-wrap justify-center sm:justify-start items-center border-b border-gray-700 shadow-md z-10 gap-2">
+        <a href="#" data-section="debugging" class="active text-text hover:text-white font-medium flex items-center">
+            <span class="mr-2">👤</span> About Me
+        </a>
+        <a href="#" data-section="update-log" class="text-text hover:text-white font-medium flex items-center">
+            <span class="mr-2">📝</span> Update Log
+        </a>
+        <!-- Dropdown Example -->
+        <div class="relative dropdown group ml-auto">
+            <button class="bookmark-nav a text-text hover:text-white font-medium flex items-center cursor-pointer">
+                <span class="mr-2">⚙️</span> Settings
+            </button>
+            <div class="dropdown-content absolute right-0 mt-2 p-2 w-48 bg-primary rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-hover:block transition-opacity duration-300 ease-out">
+                <a href="#" class="block p-2 rounded hover:bg-gray-700">Privacy Policy</a>
+                <a href="#" class="block p-2 rounded hover:bg-gray-700">Terms of Service</a>
+                <a href="#" class="block p-2 rounded hover:bg-gray-700" id="glitch-toggle">Toggle Glitch</a>
             </div>
+        </div>
+    </nav>
 
-            <!-- Description -->
-            <div class="md:col-span-2 text-left">
-                <h2 class="text-3xl font-bold text-white mb-3 font-rajdhani">About Me</h2>
-                <p class="text-gray-300 leading-relaxed">
-                    Hello! I'm Emma Kozlovsky, a passionate and dedicated professional with a strong foundation in web development.
-                    I thrive on building engaging and efficient digital experiences, always eager to learn and adapt to new technologies.
-                    My journey has equipped me with a diverse skill set, allowing me to tackle various challenges in the tech landscape.
+    <!-- Main Content Area -->
+    <main class="flex-grow p-6 md:p-8 lg:p-12">
+        <div class="max-w-4xl mx-auto bg-primary border border-gray-700 rounded-lg shadow-xl p-6 md:p-8 relative">
+
+            <!-- Section: About Me -->
+            <section id="debugging" class="content-section">
+                <h2 class="text-3xl font-bold text-accent mb-6 flex items-center justify-center">
+                    <span class="mr-3">👋</span> About Me
+                </h2>
+                <div class="flex flex-col items-center gap-6 mb-8">
+                    <img src="images/HEIF Image.jpg" alt="Placeholder for Your Photo" class="rounded-full border-4 border-highlight shadow-lg object-cover w-32 h-32 md:w-48 md:h-48">
+                    <p class="text-lg text-gray-300 text-center max-w-2xl">
+                        As a graduating senior reflecting on my high school journey, I'm incredibly proud of the growth I've achieved, especially through three years in the Web Design program. It's been an amazing experience diving deep into HTML, CSS, and JavaScript, bringing creative ideas to life on the web. Beyond coding, serving on the advisory board for three years taught me invaluable lessons in leadership, mentorship, and collaborative problem-solving. Now, as I prepare to head off to the University of Central Florida, I'm excited to embark on a new chapter of learning and innovation, carrying forward the passion and skills I've cultivated here.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section: Update Log -->
+            <section id="update-log" class="content-section hidden">
+                <h2 class="text-3xl font-bold text-accent mb-6 flex items-center">
+                    <span class="mr-3">📝</span> Update Log: Senior Year & Future Plans
+                </h2>
+                <p class="mb-6 text-lg">
+                    This past year has been a whirlwind of growth, goodbyes, and exciting new beginnings. Here’s a quick log of my senior year and what's next!
                 </p>
-            </div>
-        </div>
 
-        <!-- Skills and Positions Section -->
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
-            <!-- Coding Skills -->
-            <div class="bg-gray-700 p-6 rounded-lg border border-gray-600 flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:bg-gray-600">
-                <h2 class="text-2xl font-semibold text-purple-400 mb-4 font-rajdhani">CODING SKILLS</h2>
-                <div class="flex flex-wrap justify-center gap-2">
-                    <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">JavaScript</span>
-                    <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">CSS</span>
-                    <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">Bootstrap</span>
-                    <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">jQuery</span>
-                    <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">Vue.js</span>
-                    <span class="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">HTML</span>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-inner mb-6">
+                    <h3 class="text-xl font-semibold text-highlight mb-4">Senior Year Reflections</h3>
+                    <ul class="list-disc list-inside space-y-3">
+                        <li><strong class="text-accent">Capstone Project:</strong> Successfully completed my final web development capstone project, integrating advanced JavaScript frameworks and a robust backend.</li>
+                        <li><strong class="text-accent">Leadership Role:</strong> Took on a more prominent leadership role in the Web Design Advisory Board, guiding new members and initiating new projects.</li>
+                        <li><strong class="text-accent">Community Engagement:</strong> Participated in several local coding competitions and volunteered to teach basic web skills to middle schoolers.</li>
+                        <li><strong class="text-accent">Farewells:</strong> Bittersweet goodbyes to amazing teachers and friends who made high school an unforgettable journey.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold text-highlight mb-4">Next Destination: UCF! 🚀</h3>
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <img src="" alt="UCF Logo" class="rounded-full border-4 border-highlight shadow-lg mb-4 md:mb-0">
+                        <div>
+                            <p class="text-gray-300 mb-3">
+                                I'm incredibly excited to announce that I'll be attending the <strong class="text-highlight">University of Central Florida (UCF)</strong> in the Fall! I'll be pursuing a degree that allows me to further my passion for technology and web development.
+                            </p>
+                            <p class="text-gray-300">
+                                My goal at UCF is to explore advanced programming languages, delve into software engineering principles, and potentially get involved in research or cutting-edge projects. I'm ready for the next chapter of learning and innovation! Go Knights!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inspect Element Easter Egg Modal -->
+            <div id="inspectModal" class="modal fixed inset-0 hidden items-center justify-center">
+                <div class="modal-content text-center">
+                    <span class="close-button" onclick="closeModal()">&times;</span>
+                    <h3 class="text-2xl font-bold text-highlight mb-4">🕵️‍♂️ Found an Easter Egg! 🕵️‍♀️</h3>
+                    <p class="text-lg text-text">
+                        You've discovered a hidden message! Looks like you know your way around developer tools. 😉 Keep exploring – there's always more to learn.
+                    </p>
+                    <p class="mt-4 text-sm text-gray-400">
+                        (Hint: This is a subtle nod to our web design training!)
+                    </p>
                 </div>
             </div>
 
-            <!-- Positions/Experience -->
-            <div class="bg-gray-700 p-6 rounded-lg border border-gray-600 flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:bg-gray-600">
-                <h2 class="text-2xl font-semibold text-teal-400 mb-4 font-rajdhani">POSITIONS</h2>
-                <div class="text-teal-300 text-lg font-medium text-center">
-                    <p class="mb-2">Advisory Board Member</p>
-                    <p class="text-sm text-gray-400">3 Years Experience</p>
-                </div>
+            <!-- Hidden trigger for Inspect Element modal -->
+            <div id="inspectTrigger" class="inspect-element-trigger">
+                Right-click here for a surprise!
             </div>
-        </div>
 
-        <p class="text-sm text-gray-500 mt-8">
-            Connecting dots across the digital landscape.
-        </p>
-    </div>
+        </div>
+    </main>
+
+    <script>
+        // --- Page Load Transition ---
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded'); // Add 'loaded' class to trigger fade-in
+        });
+
+        // --- Section Switching Logic ---
+        const navLinks = document.querySelectorAll('.bookmark-nav a');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior
+                const targetSectionId = link.dataset.section;
+
+                // Remove active class from all links and hide all sections
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                contentSections.forEach(section => section.classList.add('hidden'));
+
+                // Add active class to clicked link and show target section
+                link.classList.add('active');
+                document.getElementById(targetSectionId).classList.remove('hidden');
+            });
+        });
+
+        // --- Glitch Effect Toggle ---
+        const glitchToggle = document.getElementById('glitch-toggle');
+        let glitchEnabled = false; // Initial state
+
+        // Function to apply/remove glitch class to main content
+        function applyGlitch() {
+            const mainContent = document.querySelector('main > div'); // Target the main content box
+            if (glitchEnabled) {
+                mainContent.classList.add('glitch');
+            } else {
+                mainContent.classList.remove('glitch');
+            }
+        }
+
+        glitchToggle.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent dropdown from closing immediately if it were a link
+            glitchEnabled = !glitchEnabled; // Toggle state
+            applyGlitch(); // Apply or remove glitch effect
+            glitchToggle.textContent = glitchEnabled ? 'Disable Glitch' : 'Toggle Glitch';
+        });
+
+        // --- Modal Logic for Inspect Element Easter Egg ---
+        const inspectModal = document.getElementById('inspectModal');
+        const inspectTrigger = document.getElementById('inspectTrigger');
+
+        function openModal() {
+            inspectModal.style.display = 'flex'; // Use flex to center
+        }
+
+        function closeModal() {
+            inspectModal.style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target === inspectModal) {
+                closeModal();
+            }
+        });
+
+        // Simple trigger for the inspect element message
+        // You could make this a right-click or more complex for a real "easter egg"
+        // For demonstration, let's make a hidden div appear which can be clicked
+        setTimeout(() => {
+            inspectTrigger.classList.add('visible');
+        }, 5000); // Make visible after 5 seconds
+
+        inspectTrigger.addEventListener('click', () => {
+            openModal();
+            inspectTrigger.classList.remove('visible'); // Hide trigger after click
+        });
+
+        // Also add a right-click listener to body that hints about inspecting element
+        document.body.addEventListener('contextmenu', (e) => {
+            // Prevent default right-click menu for a moment to show custom message
+            // This is just a conceptual hint, as preventing context menu globally might be annoying.
+            // For a real app, you'd likely use a dedicated "developer mode" or a hidden trigger.
+            console.log("Psst... looking for secrets? Try 'Inspect Element' (Ctrl+Shift+I or Cmd+Option+I)!");
+            // e.preventDefault(); // Uncomment to prevent default right-click menu
+        });
+
+    </script>
 </body>
 </html>
