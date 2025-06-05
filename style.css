@@ -27,7 +27,7 @@
     color: #555;
     margin: 0 0 40px 0;
     letter-spacing: 2px;
-    text-transform: lowercase;
+    text-transform: uppercase;
     font-family: 'Georgia', serif;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -36,7 +36,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
     /* Keep windows inline without scrolling */
     flex-wrap: nowrap;
     max-width: 500px;
@@ -44,10 +44,10 @@
 }
 
 .window {
-    width: 100px;
-    height: 125px;
+    width: 90px;
+    height: 115px;
     background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
-    border-radius: 50px;
+    border-radius: 45px;
     position: relative;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -64,13 +64,13 @@
 .window::before {
     content: '';
     position: absolute;
-    top: 7px;
-    left: 7px;
-    right: 7px;
-    bottom: 7px;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
     background: 
         linear-gradient(180deg, #87CEEB 0%, #B6E3FF 40%, #4A90E2 70%, #2E5BBA 100%);
-    border-radius: 43px;
+    border-radius: 39px;
     box-shadow: 
         inset 0 2px 5px rgba(0, 0, 0, 0.1),
         0 0 10px rgba(255, 255, 255, 0.5);
@@ -79,12 +79,12 @@
 .window::after {
     content: '';
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
+    top: 9px;
+    left: 9px;
+    right: 9px;
+    bottom: 9px;
     background: rgba(173, 216, 230, 0.3);
-    border-radius: 40px;
+    border-radius: 36px;
     opacity: 0;
     transition: opacity 0.3s ease;
     background-size: cover;
@@ -125,16 +125,16 @@
 /* Landscape and cloud effects for realistic airplane view */
 .window .landscape {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    border-radius: 38px;
+    top: 11px;
+    left: 11px;
+    right: 11px;
+    bottom: 11px;
+    border-radius: 34px;
     background: 
         /* Clouds in upper sky */
-        radial-gradient(ellipse 50px 20px at 30% 25%, rgba(255,255,255,0.8) 30%, transparent 70%),
-        radial-gradient(ellipse 35px 15px at 70% 20%, rgba(255,255,255,0.6) 25%, transparent 65%),
-        radial-gradient(ellipse 40px 18px at 50% 30%, rgba(255,255,255,0.7) 28%, transparent 68%),
+        radial-gradient(ellipse 45px 18px at 30% 25%, rgba(255,255,255,0.8) 30%, transparent 70%),
+        radial-gradient(ellipse 30px 12px at 70% 20%, rgba(255,255,255,0.6) 25%, transparent 65%),
+        radial-gradient(ellipse 35px 15px at 50% 30%, rgba(255,255,255,0.7) 28%, transparent 68%),
         /* Distant mountains/hills */
         linear-gradient(180deg, transparent 60%, rgba(76, 123, 89, 0.6) 65%, rgba(89, 142, 108, 0.8) 75%, rgba(102, 160, 127, 0.9) 85%, rgba(115, 178, 146, 1) 100%),
         /* Fields and landscape */
@@ -185,8 +185,8 @@
 /* Different landscape variations for each window */
 .window:nth-child(1) .landscape {
     background: 
-        radial-gradient(ellipse 45px 15px at 25% 20%, rgba(255,255,255,0.9) 25%, transparent 65%),
-        radial-gradient(ellipse 35px 13px at 75% 25%, rgba(255,255,255,0.7) 20%, transparent 60%),
+        radial-gradient(ellipse 40px 12px at 25% 20%, rgba(255,255,255,0.9) 25%, transparent 65%),
+        radial-gradient(ellipse 30px 10px at 75% 25%, rgba(255,255,255,0.7) 20%, transparent 60%),
         linear-gradient(180deg, transparent 65%, rgba(76, 123, 89, 0.5) 70%, rgba(102, 160, 127, 0.9) 85%, rgba(144, 189, 123, 1) 100%);
 }
 
@@ -209,29 +209,29 @@
     }
     
     .windows-container {
-        gap: 15px;
+        gap: 12px;
     }
     
     .window {
-        width: 70px;
-        height: 90px;
-        border-radius: 35px;
+        width: 65px;
+        height: 85px;
+        border-radius: 32px;
     }
     
     .window::before {
-        top: 5px;
-        left: 5px;
-        right: 5px;
-        bottom: 5px;
-        border-radius: 30px;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+        border-radius: 28px;
     }
     
     .window::after {
-        top: 7px;
-        left: 7px;
-        right: 7px;
-        bottom: 7px;
-        border-radius: 28px;
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        bottom: 6px;
+        border-radius: 26px;
     }
     
     .airplane-wall {
@@ -247,29 +247,29 @@
     }
     
     .windows-container {
-        gap: 10px;
+        gap: 8px;
     }
     
     .window {
-        width: 55px;
-        height: 70px;
-        border-radius: 27px;
+        width: 50px;
+        height: 65px;
+        border-radius: 25px;
     }
     
     .window::before {
-        top: 4px;
-        left: 4px;
-        right: 4px;
-        bottom: 4px;
-        border-radius: 23px;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        border-radius: 22px;
     }
     
     .window::after {
-        top: 6px;
-        left: 6px;
-        right: 6px;
-        bottom: 6px;
-        border-radius: 21px;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 20px;
     }
     
     .airplane-wall {
@@ -281,28 +281,28 @@
 /* Extra small screens */
 @media (max-width: 360px) {
     .windows-container {
-        gap: 8px;
+        gap: 6px;
     }
     
     .window {
-        width: 45px;
-        height: 58px;
-        border-radius: 22px;
+        width: 42px;
+        height: 55px;
+        border-radius: 21px;
     }
     
     .window::before {
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
         border-radius: 19px;
     }
     
     .window::after {
-        top: 5px;
-        left: 5px;
-        right: 5px;
-        bottom: 5px;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
         border-radius: 17px;
     }
     
@@ -315,11 +315,43 @@
     }
 }
 
-
-
-
-
-
+/* Ultra small screens */
+@media (max-width: 280px) {
+    .windows-container {
+        gap: 4px;
+    }
+    
+    .window {
+        width: 35px;
+        height: 45px;
+        border-radius: 17px;
+    }
+    
+    .window::before {
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border-radius: 15px;
+    }
+    
+    .window::after {
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        border-radius: 14px;
+    }
+    
+    .title {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    .airplane-wall {
+        padding: 10px 5px;
+    }
+}
 
 
 
@@ -328,28 +360,32 @@
 
 
 /*in school extracuriculars*/
-.background1{
+.background1 {
     background-image: url("images/movieClub.jpg");
     background-size: cover;
     height: 10rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added for hover */
 }
 
-.background2{
+.background2 {
     background-image: url("images/wise.jpg");
     background-size: cover;
     height: 10rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added for hover */
 }
 
-.background3{
+.background3 {
     background-image: url("images/advisoryboard.jpg");
     background-size: cover;
     height: 10rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added for hover */
 }
 
-
-
-
-
+/* Hover effects for the accordion buttons (background images) */
+.accordion-button:hover {
+    transform: scale(1.02); /* Slightly enlarges the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
 
 .post-container {
     background-color: #f1f3f4;
@@ -359,7 +395,13 @@
     max-width: 800px;
     margin: 0 auto;
     font-family: 'Google Sans', Roboto, Arial, sans-serif;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added for hover */
+}
 
+/* Hover effect for the entire post container */
+.post-container:hover {
+    transform: translateY(-5px); /* Lifts the card slightly */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Enhances the shadow */
 }
 
 .post-content {
@@ -384,6 +426,12 @@
     color: white;
     font-weight: 500;
     font-size: 18px;
+    transition: transform 0.2s ease-in-out; /* Added for hover */
+}
+
+/* Hover effect for the avatar */
+.post-avatar:hover {
+    transform: rotate(10deg); /* Rotates the avatar slightly */
 }
 
 .post-info {
@@ -395,10 +443,7 @@
     font-weight: 500;
     color: #202124;
     margin-top: 10px;
-    
 }
-
-
 
 .post-menu {
     width: 24px;
@@ -411,10 +456,12 @@
     color: #5f6368;
     font-size: 20px;
     font-weight: bold;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out; /* Added for hover */
 }
 
 .post-menu:hover {
     background: #f1f3f4;
+    color: #202124; /* Darkens the color on hover */
 }
 
 .post-text {
@@ -438,6 +485,12 @@
     border-radius: 50%;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="%23e8eaed"/></svg>');
     background-size: cover;
+    transition: transform 0.2s ease-in-out; /* Added for hover */
+}
+
+/* Hover effect for the comment avatar */
+.comment-avatar:hover {
+    transform: scale(1.1); /* Slightly enlarges the comment avatar */
 }
 
 .comment-input-container {
@@ -448,6 +501,13 @@
     border: 1px solid #dadce0;
     border-radius: 24px;
     padding: 8px 16px;
+    transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Added for hover/focus */
+}
+
+/* Hover effect for the comment input container */
+.comment-input-container:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds a subtle shadow */
+    border-color: #c4c7c5; /* Darkens the border */
 }
 
 .comment-input {
@@ -472,13 +532,13 @@
     justify-content: center;
     font-size: 18px;
     margin-left: 8px;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out; /* Added for hover */
 }
 
 .comment-send:hover {
     background: #f1f3f4;
+    color: #202124; /* Darkens the color on hover */
 }
-
-
 
 
 
